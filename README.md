@@ -1,5 +1,4 @@
 <p align="center">
-	<br>
 	<b>EggLang</b> - Encoder & Decoder
 	<br>
  	<i>Flask based website allowing users to convert any message into egg "language".</i>
