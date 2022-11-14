@@ -1,0 +1,59 @@
+.ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.ribbon::before,
+.ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+}
+
+.ribbon span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: white;
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 20%);
+    color: #999;
+    font: 400 24px 'Rubik', sans-serif;
+    text-align: center;
+}
+
+.ribbon span:hover {
+    transition: all 200ms ease;
+    color: #000;
+    text-shadow: 0 0 2rem rgb(0, 0, 0, 30%);
+}
+
+.ribbon-top-left {
+    top: -10px;
+    left: -10px;
+}
+
+.ribbon-top-left::before,
+.ribbon-top-left::after {
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+.ribbon-top-left::before {
+    top: 0;
+    right: 0;
+}
+
+.ribbon-top-left::after {
+    bottom: 0;
+    left: 0;
+}
+
+.ribbon-top-left span {
+    right: -25px;
+    top: 30px;
+    transform: rotate(-45deg);
+}

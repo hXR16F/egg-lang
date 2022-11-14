@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    font-family: Rubik, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    font-size: 75%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    place-items: center;
+    place-content: center;
+    background: linear-gradient(21deg, #FB7BA2 0%, #FCE043 100%);
+    background-size: cover;
+}
+
+* {
+    font-size: 1.8rem;
+}
+
+input,
+button {
+    background: white;
+    color: rgb(7 2 18);
+    transition: all 200ms ease;
+    border-left: 0 solid transparent;
+    border: 0;
+    height: 7rem;
+    margin: 10px 20px 0 10px;
+    padding: 0 calc(5.8rem * 0.5);
+    border-radius: calc(5.8rem * 0.3);
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 20%);
+}
+
+#footer {
+    position: absolute;
+    color: rgb(0, 0, 0, 15%);
+    bottom: 0;
+    left: 0;
+    font-size: 75%;
+    padding: 10px;
+    z-index: -1;
+}
+
+#text {
+    width: 50vw;
+}
+
+.popup-text {
+    color: rgb(7 2 18);
+}
+
+#ko-fi {
+    margin-left: 15px;
+    background-image: url("../images/ko-fi.png");
+    background-size: auto 7rem;
+    height: 7rem;
+    width: 205px;
+}
+
+#ko-fi:hover {
+    width: 250px;
+}
+
+#text:hover,
+#button:hover,
+#copy:hover,
+.bottom-btn:hover,
+#goback-btn:hover {
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 60%);
+}
+
+#button:hover,
+#copy:hover,
+.bottom-btn:hover,
+#goback-btn:hover {
+    cursor: pointer;
+}
+
+#button:active,
+#copy:active,
+#goback-btn:hover {
+    padding: 0 calc(10rem * 0.5);
+}
+
+hr {
+    background-color: white;
+    border-top: 3px dashed #fdcd65;
+}
+
+.popup-text>hr {
+    margin-right: 20px;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    .popup-text>hr {
+        margin-right: 0;
+    }
+}
+
+.popup-text>table,
+tr,
+td {
+    vertical-align: top;
+    border-collapse: collapse;
+    padding-right: 40px;
+}
+
+.scroll {
+    margin: auto;
+    background: #fff;
+    height: calc(65vh - 50px);
+    overflow-y: scroll;
+}

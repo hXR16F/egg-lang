@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="content">
+        <table>
+            <tr>
+                {% if placeholder %}<input type="text" id="text" placeholder="{{ converted }}" readonly>
+                {% else %}<input type="text" id="text" value="{{ converted }}" readonly>
+                {% endif %}<button class="btn" style="margin-left: 15px;" data-clipboard-target="#text" id="copy"">Copy</button>
+            </tr>
+            <br>
+            <tr>
+                <a href="/egg-lang/"><button style="margin-top: 35px" id="goback-btn">Go back</button></a>
+            </tr>
+        </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/clipboard.min.js') }}"></script>
+
+    <script>
+        var clipboard = new ClipboardJS(".btn");
+
+        clipboard.on("success", function(e) {
+            document.getElementById("copy").innerText = "Copied!";
+            setTimeout(() => { document.getElementById("copy").innerText = "Copy"; }, 2000);
+            e.clearSelection();
+        });
+
+        clipboard.on("error", function(e) {
+            console.error("Action:", e.action);
+            console.error("Trigger:", e.trigger);
+            document.getElementById("copy").innerText = "Can't copy!";
+            setTimeout(() => { document.getElementById("copy").innerText = "Copy"; }, 2000);
+        });
+    </script>
+{% endblock %}

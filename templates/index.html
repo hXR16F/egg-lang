@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="content">
+        <table>
+            <tr>
+                <div class="form">
+                    <form action="/egg-lang/encode" method="POST">
+                        <input type="text" name="text" id="text" placeholder="Type text here to encode" autocomplete="off">
+                        <input type="submit" id="button" value="Encode">
+                    </form>
+                </div>
+            </tr>
+            <br>
+            <tr>
+                <div class="form">
+                    <form action="/egg-lang/decode" method="POST">
+                        <input type="text" name="text" id="text" placeholder="Type text here to decode" autocomplete="off">
+                        <input type="submit" id="button" value="Decode">
+                    </form>
+                </div>
+            </tr>
+            <br>
+            <tr id="right">
+                <a href="#api-usage"><button class="bottom-btn">API</button></a>
+                <a href="https://ko-fi.com/zaktabyte"><button class="bottom-btn" id="ko-fi">‎</button></a>
+            </tr>
+        </table>
+        <div id="api-usage" class="overlay">
+            <div class="popup">
+                <h2>EggLang API Usage</h2>
+                <a class="close" href="#">&times;</a><br>
+                <div class="scroll">
+                    <div class="popup-text">
+                        <hr>
+                        <br><b>Endpoint:</b> POST /api/egg-lang/encode/&lt;json/raw&gt;
+                        <br><b>Data:</b> Required field: 'text'
+                        <br><b>Returns:</b> Encoded string in EggLang
+                        <br><b>Limit:</b> 20 requests per minute, up to {{ limit_encode }} chars
+                        <br><br><b>cURL Example:</b>
+                        <br>curl -X POST -d "text=hi" <script>document.write(window.location.origin);</script>/api/egg-lang/encode/json
+                        <br><br>
+                        <table cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><b>Result:</b></td>
+                                <td><b>Result when an error occurs:</b></td>
+                            </tr>
+                            <tr>
+                                <td>{<br>    "success": true,<br>    "text": "Egg EgG eGG Egg Egg EGG egg egG"<br>}</td>
+                                <td>{<br>    "success": false<br>}</td>
+                            </tr>
+                        </table>
+                        <br><hr>
+                        <br><b>Endpoint:</b> POST /api/egg-lang/decode/&lt;json/raw&gt;
+                        <br><b>Data:</b> Required field: 'text'
+                        <br><b>Returns:</b> Decoded string in human readable format
+                        <br><b>Limit:</b> 20 requests per minute, up to {{ limit_decode }} chars ({{ limit_decode_eggs }} eggs)
+                        <br><br><b>cURL Example:</b>
+                        <br>curl -X POST -d "text=Egg EgG eGG Egg Egg EGG egg egG" <script>document.write(window.location.origin);</script>/api/egg-lang/decode/raw
+                        <br><br>
+                        <table cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><b>Result:</b></td>
+                                <td><b>Result when an error occurs:</b></td>
+                            </tr>
+                            <tr>
+                                <td> hi</td>
+                                <td>Error</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

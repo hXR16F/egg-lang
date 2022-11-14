@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="maximum-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ribbons.css') }}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>EggLang - Encoder & Decoder</title>
+</head>
+<body>
+    <div class="ribbon ribbon-top-left"><a href="https://github.com/hXR16F/egg-lang"><span>GitHub</span></a></div>
+    {% block body %}{% endblock %}
+    <div id="footer">EggLang 2.0 Public</div>
+</body>
+</html>
