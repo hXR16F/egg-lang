@@ -3,7 +3,7 @@
 	<br>
  	<i><a href="https://flask.palletsprojects.com/">Flask</a> based website allowing users to convert any message into egg "language".</i>
 	<br><br><br>
-	<img src="https://user-images.githubusercontent.com/48186982/200585473-ba7fbe7d-66b3-4f85-853e-2cd607f1aea1.png">
+	<img src="https://user-images.githubusercontent.com/48186982/201659718-4759df41-7754-4f77-9707-2feb87208cef.png">
 </p>
 
 # Donate
