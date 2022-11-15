@@ -20,10 +20,10 @@ def go_home(type_of_redirect: str):
     if type_of_redirect == "render":
         return render_template("index.html", limit_encode=limit_encode, limit_decode=limit_decode, limit_decode_eggs=limit_decode_eggs)
     elif type_of_redirect == "redirect":
-        return redirect(url_for("index"), limit_encode=limit_encode, limit_decode=limit_decode, limit_decode_eggs=limit_decode_eggs)
+        return redirect("/egg-lang/")
 
 def jsonify(status=200, indent=4, sort_keys=False, **kwargs):
-    response = make_response(dumps(dict(**kwargs), indent=indent, sort_keys=sort_keys))
+    response = make_response(dumps(dict(**kwargs), ensure_ascii=False, indent=indent, sort_keys=sort_keys))
     response.headers["Content-Type"] = "application/json; charset=utf-8"
     response.headers["mimetype"] = "application/json"
     response.status_code = status
@@ -85,15 +85,20 @@ def encoder_decoder(encode_or_decode, *args):
     if args == ():
         if length == 0:
             return go_home("redirect")
-
         if not encoded_decoded:
             if not exceeded_limit:
                 return go_home("redirect")
             
-            return render_template("generate.html", converted=f"Exceeded encoding limit ({length}/{limit} chars)", placeholder=True)
+            if encode_or_decode == "encode":
+                return render_template("generate.html", converted=f"Exceeded encoding limit ({length}/{limit} chars)", placeholder=True)
+            elif encode_or_decode == "decode":
+                return render_template("generate.html", converted=f"Exceeded decoding limit ({length}/{limit} chars)", placeholder=True)
 
         if is_error:
-            return render_template("generate.html", converted="Error while encoding", placeholder=True)
+            if encode_or_decode == "encode":
+                return render_template("generate.html", converted="Error while encoding", placeholder=True)
+            elif encode_or_decode == "decode":
+                return render_template("generate.html", converted="Error while decoding", placeholder=True)
 
         return render_template("generate.html", converted=encoded_decoded)
     else:
