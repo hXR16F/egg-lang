@@ -1,5 +1,5 @@
 <p align="center">
-	<a href="https://fluttershy.ml/egg-lang/"><b>EggLang</b></a> - Encoder & Decoder
+	<a href="https://1000420.xyz/egg-lang/"><b>EggLang</b></a> - Encoder & Decoder
 	<br>
  	<i><a href="https://flask.palletsprojects.com/">Flask</a> based website allowing users to convert any message into egg "language".</i>
 	<br><br><br>
